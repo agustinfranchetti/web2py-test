@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 # -------------------------------------------------------------------------
 # This is a sample controller
 # this file is released under public domain and you can use without limitations
@@ -7,9 +6,25 @@
 # ---- example index page ----
 def index():
     data_employee=db(db.employee.id>0).select()
+    
+    Boss = db.employee.with_alias('boss')
+    
+    
+    registros = db().select(db.employee.name, Boss.name,
+      left=(Boss.on(Boss.id==db.employee.id_boss)))
+    
+    #alternativa 1
     legajos = db(db.employee.name==db.students.name).select()
+    
+    #alternativa 2
+    legajos2 = db(db.employee).select(join=db.students.on(db.employee.name==db.students.name))
+    
+    asignados = db(db.proyectos).select()
+
     people = ["colo", "mecha", "simon"]
+    
     return locals()
+
 # ---- API (example) -----
 @auth.requires_login()
 def api_get_user_email():

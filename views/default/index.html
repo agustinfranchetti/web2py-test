@@ -12,6 +12,17 @@
     {{=person}}<br/>
 {{pass}}
 <br/>
+<b>Inner Join metodo 1</b><br/>
 {{for legajo in legajos:}}
     {{=legajo.employee.name}}'s legajo is: {{=legajo.students.legajo}}<br/>
+{{pass}}
+<br/>
+<b>Inner Join metodo 2:</b><br/>
+{{for legajo2 in legajos2:}}
+    {{=legajo2.employee.name}}'s legajo is: {{=legajo2.students.legajo}}<br/>
+{{pass}}
+<br/>
+<b>Self Reference</b><br/>
+{{for registro in registros:}}
+    {{=registro.employee.name}}'s boss is {{=registro.boss.name}}<br/>
 {{pass}}
