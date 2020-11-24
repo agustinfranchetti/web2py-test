@@ -17,7 +17,7 @@ def index():
     legajos = db(db.employee.name==db.students.name).select()
     
     #alternativa 2
-    legajos2 = db(db.employee).select(join=db.students.on(db.employee.name==db.students.name))
+    legajos2 = db(db.employee).select(left=db.students.on(db.employee.name==db.students.name))
     
     asignados = db(db.proyectos).select()
 
