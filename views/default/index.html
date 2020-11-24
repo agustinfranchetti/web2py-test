@@ -1,0 +1,17 @@
+{{extend 'layout.html'}}
+
+{{for employee in data_employee:}}
+<ul>
+    <li>{{=employee.name}}</li>
+    <li>{{=employee.email}}</li>
+    <li>{{=employee.age}}</li>
+</ul>
+{{pass}}
+
+{{for person in people:}}
+    {{=person}}<br/>
+{{pass}}
+<br/>
+{{for legajo in legajos:}}
+    {{=legajo.employee.name}}'s legajo is: {{=legajo.students.legajo}}<br/>
+{{pass}}
